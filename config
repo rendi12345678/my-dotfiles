@@ -34,7 +34,8 @@ bindsym Print exec --no-startup-id maim --format=png "/home/$USER/Pictures/scree
 
 # Set the wallpaper
 # exec_always --no-startup-id feh --bg-scale ~/Downloads/pine-watt-2Hzmz15wGik-unsplash.jpg
-exec_always --no-startup-id feh --bg-scale ~/Downloads/karsten-wurth-7BjhtdogU3A-unsplash.jpg
+# exec_always --no-startup-id feh --bg-scale ~/Downloads/karsten-wurth-7BjhtdogU3A-unsplash.jpg
+exec_always --no-startup-id feh --bg-scale ~/Downloads/roksolana-zasiadko-cf-ZRVtH6kE-unsplash.jpg
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
@@ -59,13 +60,18 @@ exec --no-startup-id nm-applet
 # tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec --no-startup-id alacritty
+
+bindsym $mod+c exec flameshot gui
 
 # kill focused window
 bindsym $mod+q kill
 
 # Open default browser
-bindsym $mod+b exec google-chrome-stable
+bindsym $mod+b exec --no-startup-id qutebrowser
+
+# Open qutebrowser
+# bindsym $mod+Shift+q exec --no-startup-id qutebrowser
 
 # Open ranger
 bindsym $mod+e exec --no-startup-id alacritty -e ranger
@@ -129,6 +135,7 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 gaps inner 20
+gaps outer 40
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.

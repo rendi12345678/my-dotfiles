@@ -2,6 +2,21 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap -- for conciseness
 
+-- Move cursor left
+keymap.set('i', '<C-h>', '<Left>', { noremap = true, silent = true, desc = 'Move cursor left' })
+
+-- Move cursor right
+keymap.set('i', '<C-l>', '<Right>', { noremap = true, silent = true, desc = 'Move cursor right' })
+
+-- Delete the character before the cursor
+keymap.set('i', '<C-d>', '<Delete>', { noremap = true, silent = true, desc = 'Delete the character before the cursor' })
+
+-- Delete the word before the cursor (Ctrl+w in Vim)
+keymap.set('i', '<C-w>', '<C-o>db<C-o>x', { noremap = true, silent = true, desc = 'Delete the word before the cursor' })
+
+-- Delete the word after the cursor (Alt+d in Vim)
+keymap.set('i', '<C-D>', '<C-o>dw', { noremap = true, silent = true, desc = 'Delete the word after the cursor' })
+
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 keymap.set("i", "<C-c>", "<Esc>", { desc = "Exit inset mode" })
 

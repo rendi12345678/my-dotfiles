@@ -14,6 +14,7 @@ setopt hist_expire_dups_first
 setopt hist_ignore_dups
 setopt hist_verify
 
+export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$PATH:/opt/nvim-linux64/bin"
 export PATH="$PATH:/opt/nvim/"
 export NVM_DIR="$HOME/.nvm"
@@ -74,6 +75,9 @@ alias gl="git log --graph --oneline --decorate --all"
 alias dcu="docker compose up"
 alias dcw="docker compose watch"
 
+# Cargo Aliases
+alias cw="cargo watch -q -c -w src/ -x 'run -q'";
+
 # Enable vim in zsh
 bindkey -v
 
@@ -106,6 +110,7 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 # Activate ZSH syntax highlighting and zsh autosuggestions
 source ~/./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 source "$HOME/.fzf/shell/key-bindings.zsh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
