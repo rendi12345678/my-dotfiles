@@ -5,6 +5,24 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+edit_zsh_command() {
+    temp_file=$(mktemp /tmp/zsh_command.XXXXXX)
+    if [[ -n "$temp_file" ]]; then
+        nvim "$temp_file"
+        if [[ $? -eq 0 ]]; then
+            source "$temp_file"
+            rm "$temp_file"
+        else
+            echo "Failed to edit the file in Neovim."
+            rm "$temp_file"
+        fi
+    else
+        echo "Failed to create a temporary file."
+    fi
+}
+
+bindkey -s '^e' "edit_zsh_command^M"
+
 autoload -Uz compinit; compinit
 
 # history setup
@@ -29,6 +47,7 @@ alias ls="eza --icons=always"
 # ---- Zoxide (better cd) ----
 eval "$(zoxide init zsh)"
 
+alias e="edit_zsh_command"
 alias cd="z"
 alias n="nvim"
 alias c="clear"
@@ -112,7 +131,6 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 # Activate ZSH syntax highlighting and zsh autosuggestions
 source ~/./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 source "$HOME/.fzf/shell/key-bindings.zsh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

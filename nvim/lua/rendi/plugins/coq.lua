@@ -45,7 +45,7 @@ return {
     local lsp = require("lspconfig");
     local coq = require("coq");
 
-    lsp.tsserver.setup(coq.lsp_ensure_capabilities{})
+    lsp.ts_ls.setup(coq.lsp_ensure_capabilities{})
     lsp.tailwindcss.setup(coq.lsp_ensure_capabilities{})
     lsp.emmet_ls.setup(coq.lsp_ensure_capabilities{})
     -- lsp.rust_analyzer.setup(coq.lsp_ensure_capabilities{
