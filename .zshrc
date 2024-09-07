@@ -5,6 +5,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+autoload -Uz compinit; compinit
+
 # history setup
 HISTFILE=$HOME/.zhistory
 SAVEHIST=1000
@@ -76,7 +78,7 @@ alias dcu="docker compose up"
 alias dcw="docker compose watch"
 
 # Cargo Aliases
-alias cw="cargo watch -q -c -w src/ -x 'run -q'";
+alias cw="cargo watch -c -x run"
 
 # Enable vim in zsh
 bindkey -v

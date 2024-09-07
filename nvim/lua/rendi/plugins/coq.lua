@@ -23,7 +23,7 @@ return {
       keymap = {
         recommended = false,
         bigger_preview = "null",
-        jump_to_mark = "null"
+        jump_to_mark = "<c-]>"
       },
     }
   end,
@@ -48,16 +48,16 @@ return {
     lsp.tsserver.setup(coq.lsp_ensure_capabilities{})
     lsp.tailwindcss.setup(coq.lsp_ensure_capabilities{})
     lsp.emmet_ls.setup(coq.lsp_ensure_capabilities{})
-    lsp.rust_analyzer.setup(coq.lsp_ensure_capabilities{
-      settings = {
-      ["rust-analyzer"] = {
-        cargo = {
-          allFeatures = true,
-        },
-        checkOnSave = {
-          command = "clippy",
-        },
-      },
-    },})
+    -- lsp.rust_analyzer.setup(coq.lsp_ensure_capabilities{
+    --   settings = {
+    --   ["rust-analyzer"] = {
+    --     cargo = {
+    --       allFeatures = true,
+    --     },
+    --     checkOnSave = {
+    --       command = "clippy",
+    --     },
+    --   },
+    -- },})
   end,
 }
