@@ -20,8 +20,6 @@ keymap.set('i', '<C-D>', '<C-o>dw', { noremap = true, silent = true, desc = 'Del
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 keymap.set("i", "<C-c>", "<Esc>", { desc = "Exit inset mode" })
 
-keymap.set("n", "<leader>ww", ":W3m ", { desc = "Open W3m" }) 
-
 -- Select all
 keymap.set("n", "<C-t>", "gg<S-v>G")
 
