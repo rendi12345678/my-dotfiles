@@ -212,8 +212,8 @@ config.bind('<Ctrl-u>', 'fake-key <Shift-Home><Delete>', 'insert')
 # Delete from the cursor to the end of the line (Ctrl+k in Vim)
 config.bind('<Ctrl-k>', 'fake-key <Shift-End><Delete>', 'insert')
 
-config.set("fileselect.handler", "external")
-config.set("fileselect.single_file.command", ['alacritty', '--class', 'ranger,ranger', '-e', 'ranger', '--choosefile', '{}'])
-config.set("fileselect.multiple_files.command", ['alacritty', '--class', 'ranger,ranger', '-e', 'ranger', '--choosefiles', '{}'])
+# config.set("fileselect.handler", "external")
+# config.set("fileselect.single_file.command", ['alacritty', '--class', 'ranger,ranger', '-e', 'ranger', '--choosefile', '{}'])
+# config.set("fileselect.multiple_files.command", ['alacritty', '--class', 'ranger,ranger', '-e', 'ranger', '--choosefiles', '{}'])
 
 
