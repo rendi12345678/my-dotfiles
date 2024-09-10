@@ -70,19 +70,3 @@ keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Next tab" })
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Previous tab" })
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" })
 
--- Custom substitute throughout the entire file
-keymap.set('n', '<leader>ss', [[:%s/<C-r>=input("Find: ")<CR>/<C-r>=input("Replace with: ")<CR>/g<CR>]], 
-    { noremap = true, silent = false, desc = "Substitute throughout the entire file" })
-
--- Custom substitute on the current line only
-keymap.set('n', '<leader>sl', [[:s/<C-r>=input("Find: ")<CR>/<C-r>=input("Replace with: ")<CR>/g<CR>]], 
-    { noremap = true, silent = false, desc = "Substitute on the current line" })
-
--- Custom substitute within the selected visual range
-keymap.set('v', '<leader>sV', [[:s/<C-r>=input("Find: ")<CR>/<C-r>=input("Replace with: ")<CR>/g<CR>]], 
-    { noremap = true, silent = false, desc = "Substitute in visual selection" })
-
--- Custom substitute for the word under the cursor
-keymap.set('n', '<leader>sc', [[:%s/\<<C-r><C-w>\>/<C-r>=input("Replace with: ")<CR>/gI<CR>]], 
-    { noremap = true, silent = false, desc = "Substitute word under cursor" })
-
