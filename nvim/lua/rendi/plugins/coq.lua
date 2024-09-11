@@ -47,18 +47,21 @@ return {
 
     lsp.ts_ls.setup(coq.lsp_ensure_capabilities{})
     lsp.tailwindcss.setup(coq.lsp_ensure_capabilities{})
+    lsp.intelephense.setup(coq.lsp_ensure_capabilities{})
+    lsp.html.setup(coq.lsp_ensure_capabilities{})
+    lsp.phpactor.setup(coq.lsp_ensure_capabilities{})
     lsp.emmet_ls.setup(coq.lsp_ensure_capabilities{})
     lsp.jsonls.setup(coq.lsp_ensure_capabilities{})
     lsp.rust_analyzer.setup(coq.lsp_ensure_capabilities{
       settings = {
-      ["rust-analyzer"] = {
-        cargo = {
-          allFeatures = true,
+        ["rust-analyzer"] = {
+          cargo = {
+            allFeatures = true,
+          },
+          checkOnSave = {
+            command = "clippy",
+          },
         },
-        checkOnSave = {
-          command = "clippy",
-        },
-      },
-    },})
+      },})
   end,
 }
