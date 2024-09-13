@@ -24,7 +24,7 @@ for_window [class="^.*"] border pixel 0
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 # exec_always feh --bg-fill ~/Downloads/wallpaper1.jpg
-exec_always --no-startup-id picom 
+# exec_always --no-startup-id picom 
 
 # Full Screenshot
 bindsym Print exec --no-startup-id maim --format=png "/home/$USER/Pictures/screenshot-$(date -u +'%Y%m%d-%H%M%SZ')-all.png"
