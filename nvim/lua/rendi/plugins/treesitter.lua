@@ -3,28 +3,33 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   build = ":TSUpdate",
   dependencies = {
-    "windwp/nvim-ts-autotag",
+    "windwp/nvim-ts-autotag",  -- Autotagging plugin for HTML and XML
   },
   config = function()
-    -- import nvim-treesitter plugin
+    -- Import nvim-treesitter configs
     local treesitter = require("nvim-treesitter.configs")
 
-    -- configure treesitter
-    treesitter.setup({ -- enable syntax highlighting
+    -- Configure Treesitter
+    treesitter.setup({
       highlight = {
-        enable = true,
+        enable = true,  -- Enable syntax highlighting
       },
-      -- enable indentation
-      indent = { enable = true },
-      -- enable autotagging (w/ nvim-ts-autotag plugin)
+      indent = {
+        enable = true,  -- Enable indentation
+      },
       autotag = {
-        enable = true,
+        enable = true,  -- Enable autotagging with nvim-ts-autotag
       },
-      -- ensure these language parsers are installed
+      -- Ensure these language parsers are installed
       ensure_installed = {
         "json",
-        -- "dockerfile",
+        "html",
+        "php_only",
+        "dockerfile",
+        "php",
+        "phpdoc",
         "javascript",
+        "blade",
         "typescript",
         "tsx",
         "css",
@@ -33,15 +38,33 @@ return {
         "lua",
         "vimdoc",
       },
+      -- Incremental selection keymaps
       incremental_selection = {
         enable = true,
         keymaps = {
-          init_selection = "<C-space>",
-          node_incremental = "<C-space>",
-          scope_incremental = false,
-          node_decremental = "<bs>",
+          init_selection = "<C-space>",  -- Start selection
+          node_incremental = "<C-space>",  -- Expand selection
+          scope_incremental = false,  -- Disable scope selection
+          node_decremental = "<bs>",  -- Shrink selection
         },
       },
+    })
+
+    local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+
+    parser_config.blade = {
+      install_info = {
+        url = "https://github.com/EmranMR/tree-sitter-blade",
+        files = { "src/parser.c" },
+        branch = "main",
+      },
+      filetype = "blade"
+    }
+
+    vim.filetype.add({
+      pattern = {
+        ['.*%.blade%.php'] = 'blade',
+      }
     })
   end,
 }
