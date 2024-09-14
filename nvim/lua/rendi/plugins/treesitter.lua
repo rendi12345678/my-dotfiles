@@ -8,6 +8,20 @@ return {
   config = function()
     -- Import nvim-treesitter configs
     local treesitter = require("nvim-treesitter.configs")
+    local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+    parser_config.blade = {
+      install_info = {
+        url = "https://github.com/EmranMR/tree-sitter-blade",
+        files = { "src/parser.c" },
+        branch = "main",
+      },
+      filetype = "blade",
+    }
+    vim.filetype.add({
+      pattern = {
+        [".*%.blade%.php"] = "blade",
+      },
+    })
 
     -- Configure Treesitter
     treesitter.setup({
@@ -24,12 +38,9 @@ return {
       ensure_installed = {
         "json",
         "html",
-        "php_only",
-        "dockerfile",
         "php",
-        "phpdoc",
+        "dockerfile",
         "javascript",
-        "blade",
         "typescript",
         "tsx",
         "css",
@@ -50,21 +61,5 @@ return {
       },
     })
 
-    local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
-
-    parser_config.blade = {
-      install_info = {
-        url = "https://github.com/EmranMR/tree-sitter-blade",
-        files = { "src/parser.c" },
-        branch = "main",
-      },
-      filetype = "blade"
-    }
-
-    vim.filetype.add({
-      pattern = {
-        ['.*%.blade%.php'] = 'blade',
-      }
-    })
   end,
 }

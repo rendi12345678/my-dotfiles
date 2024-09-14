@@ -2,6 +2,10 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap -- for conciseness
 
+-- LSP keybindings
+local opts = { noremap=true, silent=true, desc = "Go to definition" }
+vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+
 -- Cursor movements in insert mode
 keymap.set('i', '<C-h>', '<Left>', { noremap = true, silent = true, desc = 'Move cursor left' })
 keymap.set('i', '<C-l>', '<Right>', { noremap = true, silent = true, desc = 'Move cursor right' })
