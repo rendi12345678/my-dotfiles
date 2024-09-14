@@ -6,28 +6,26 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 edit_zsh_command() {
-    # Create a temporary file
     temp_file=$(mktemp /tmp/zsh_command.XXXXXX)
-
-    # Check if the temporary file was created successfully
     if [[ -n "$temp_file" ]]; then
-
-        # Open the temporary file in Neovim
+        # Open the temporary file in Neovim for editing
         nvim "$temp_file"
 
-        # Check if Neovim exited successfully
         if [[ $? -eq 0 ]]; then
-            source "$temp_file"
-
-            # Print the last command executed for easy reuse
-            echo "Last command executed:"
+            # Capture the last command from the temporary file
             last_command=$(cat "$temp_file")
-            echo "$last_command"
-            echo ""
 
-            # Remove the temporary file
+            # Print the last command executed
+            echo -n "Last command executed: $last_command"
+
+            # Execute the last command and capture the response
+            response=$(eval "$last_command")
+
+            # Print the response
+            echo -e "\nResponse:\n$response"
+
+            # Clean up the temporary file
             rm "$temp_file"
-
         else
             echo "Failed to edit the file in Neovim."
             rm "$temp_file"
