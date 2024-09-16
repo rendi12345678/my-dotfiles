@@ -39,7 +39,7 @@ return {
         "json",
         "html",
         "php",
-        "dockerfile",
+        -- "dockerfile",
         "javascript",
         "typescript",
         "tsx",
