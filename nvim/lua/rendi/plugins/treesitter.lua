@@ -39,6 +39,7 @@ return {
         "json",
         "html",
         "php",
+        "rust",
         -- "dockerfile",
         "javascript",
         "typescript",
