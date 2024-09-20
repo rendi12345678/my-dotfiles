@@ -5,20 +5,20 @@ vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
 })
 
 -- Automatically set filetype for .jsx files to javascript
-vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
-  pattern = "*.jsx",
-  callback = function()
-    vim.bo.filetype = "javascript"
-  end
-})
-
-vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
-  pattern = "*.tsx",
-  callback = function()
-    vim.bo.filetype = "typescript"
-  end
-})
-
+-- vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
+--   pattern = "*.jsx",
+--   callback = function()
+--     vim.bo.filetype = "javascript"
+--   end
+-- })
+--
+-- vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
+--   pattern = "*.tsx",
+--   callback = function()
+--     vim.bo.filetype = "typescript"
+--   end
+-- })
+--
 
 -- Turn off paste mode when leaving insert
 vim.api.nvim_create_autocmd("InsertLeave", {
