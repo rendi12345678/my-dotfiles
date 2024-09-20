@@ -9,6 +9,8 @@ return {
     -- Import nvim-treesitter configs
     local treesitter = require("nvim-treesitter.configs")
     local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+    
+    -- Add custom parser for Blade templates
     parser_config.blade = {
       install_info = {
         url = "https://github.com/EmranMR/tree-sitter-blade",
@@ -17,6 +19,8 @@ return {
       },
       filetype = "blade",
     }
+
+    -- Add custom filetype association for Blade templates
     vim.filetype.add({
       pattern = {
         [".*%.blade%.php"] = "blade",
@@ -40,10 +44,14 @@ return {
         "html",
         "php",
         "rust",
-        -- "dockerfile",
+        "yaml",
         "javascript",
         "typescript",
+        "cmake",
+        "c",
+        "query",
         "tsx",
+        "vim",
         "css",
         "markdown",
         "markdown_inline",
@@ -61,6 +69,5 @@ return {
         },
       },
     })
-
   end,
 }

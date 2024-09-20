@@ -17,12 +17,12 @@ return {
         html = { "prettier" },
         json = { "prettier" },
         yaml = { "prettier" },
-         blade = { "blade-formatter" },
+        blade = { "blade-formatter" },  -- Make sure you have blade-formatter installed
         markdown = { "prettier" },
         graphql = { "prettier" },
         liquid = { "prettier" },
-        lua = { "prettier" },
-        python = { "prettier" },
+        lua = { "stylua" },  -- Use stylua for Lua formatting
+        python = { "black" },  -- Use black for Python formatting
       },
       format_on_save = {
         lsp_fallback = true,
