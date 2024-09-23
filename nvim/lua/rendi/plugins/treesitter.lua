@@ -1,77 +1,54 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   event = { "BufReadPre", "BufNewFile" },
-  build = ":TSUpdate",  -- This ensures parsers are updated after installation
+  build = ":TSUpdate",
   dependencies = {
-    "windwp/nvim-ts-autotag",  -- Autotagging plugin for HTML, JSX, and XML
+    "windwp/nvim-ts-autotag",
   },
   config = function()
-    -- Safely import nvim-treesitter configs
-    local treesitter_ok, treesitter = pcall(require, "nvim-treesitter.configs")
-    if not treesitter_ok then
-      vim.notify("Failed to load nvim-treesitter", vim.log.levels.ERROR)
-      return
-    end
+    -- import nvim-treesitter plugin
+    local treesitter = require("nvim-treesitter.configs")
 
-    local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-
-    -- Add custom parser for Blade templates (used in Laravel)
-    parser_config.blade = {
-      install_info = {
-        url = "https://github.com/EmranMR/tree-sitter-blade",
-        files = { "src/parser.c" },
-        branch = "main",
-      },
-      filetype = "blade",
-    }
-
-    -- Add custom filetype association for Blade templates
-    vim.filetype.add({
-      pattern = {
-        [".*%.blade%.php"] = "blade",  -- Maps .blade.php files to Blade filetype
-      },
-    })
-
-    -- Configure Treesitter with necessary languages and options
-    treesitter.setup({
+    -- configure treesitter
+    treesitter.setup({ -- enable syntax highlighting
       highlight = {
-        enable = true,  -- Enable syntax highlighting
-        additional_vim_regex_highlighting = false,  -- Avoid conflict with Vim's native highlighting
+        enable = true,
       },
-      indent = {
-        enable = true,  -- Enable Treesitter-based indentation
-      },
+      -- enable indentation
+      indent = { enable = true },
+      -- enable autotagging (w/ nvim-ts-autotag plugin)
       autotag = {
-        enable = true,  -- Enable automatic closing tags (useful for HTML/JSX)
+        enable = true,
       },
-      -- Languages to ensure parsers are installed for
+      -- ensure these language parsers are installed
       ensure_installed = {
         "json",
-        "html",
-        "php",
-        "rust",
-        "yaml",
         "javascript",
         "typescript",
-        "cmake",
-        "c",
-        "query",
         "tsx",
-        "vim",
+        "yaml",
+        "html",
         "css",
+        "prisma",
         "markdown",
         "markdown_inline",
+        "graphql",
+        "bash",
         "lua",
+        "vim",
+        "dockerfile",
+        "gitignore",
+        "query",
         "vimdoc",
+        "c",
       },
-      -- Incremental selection keymaps for easier selection expansion
       incremental_selection = {
         enable = true,
         keymaps = {
-          init_selection = "<C-space>",  -- Initialize selection
-          node_incremental = "<C-space>",  -- Expand to the next node
-          scope_incremental = false,  -- Scope expansion disabled for simplicity
-          node_decremental = "<bs>",  -- Shrink the selection
+          init_selection = "<C-space>",
+          node_incremental = "<C-space>",
+          scope_incremental = false,
+          node_decremental = "<bs>",
         },
       },
     })
