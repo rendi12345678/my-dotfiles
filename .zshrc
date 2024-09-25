@@ -112,7 +112,7 @@ alias dcu="docker compose up"
 alias dcw="docker compose watch"
 
 # Cargo Aliases
-alias cw="cargo watch -c -x run"
+alias cw='cargo watch -q -c -w src/ -x "run -q"'
 
 # Enable vim in zsh
 bindkey -v

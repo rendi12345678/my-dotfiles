@@ -8,7 +8,7 @@ TERM = "xterm-256color"
 [window]
 # padding.x = 10
 # padding. 
-opacity = 1
+opacity = 0
 blur = true
 
 decorations = "none"
