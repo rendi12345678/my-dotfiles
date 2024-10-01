@@ -14,7 +14,8 @@ blur = false
 decorations = "none"
 
 [font]
-normal.family = "Hack Nerd Font"
+# normal.family = "Hack Nerd Font"
+normal.family = "JetBrains Mono"
 size = 10
 
 [[keyboard.bindings]]

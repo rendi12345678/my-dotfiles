@@ -5,6 +5,11 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+export COLCON_CURRENT_PREFIX=/opt/ros/humble-base
+source /opt/ros/humble-base/setup.sh
+
+export MAKEFLAGS="-j$(nproc)"
+
 edit_zsh_command() {
     temp_file=$(mktemp /tmp/zsh_command.XXXXXX)
     if [[ -n "$temp_file" ]]; then
