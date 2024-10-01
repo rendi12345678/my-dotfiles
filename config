@@ -33,7 +33,8 @@ bindsym Print exec --no-startup-id maim --format=png "/home/$USER/Pictures/scree
 
 # Set the wallpaper
 # exec_always --no-startup-id feh --bg-scale ~/Downloads/pine-watt-2Hzmz15wGik-unsplash.jpg
-exec_always --no-startup-id feh --bg-scale ~/Downloads/karsten-wurth-7BjhtdogU3A-unsplash.jpg
+# exec_always --no-startup-id feh --bg-scale ~/Downloads/karsten-wurth-7BjhtdogU3A-unsplash.jpg
+exec_always --no-startup-id feh --bg-scale ~/Downloads/rodrigo-soares-SCvlb1FWeuY-unsplash.jpg
 # exec_always --no-startup-id feh --bg-scale ~/Downloads/roksolana-zasiadko-cf-ZRVtH6kE-unsplash.jpg
 # exec_always --no-startup-id feh --bg-scale ~/Downloads/dlovan-666-ZQ2KT2J4uDI-unsplash.jpg
 # exec_always --no-startup-id feh --bg-scale ~/Downloads/quick-ps-8Z1_7-Td9v8-unsplash.jpg
