@@ -71,7 +71,7 @@ bindsym $mod+c exec flameshot gui
 bindsym $mod+q kill
 
 # Open default browser
-bindsym $mod+b exec --no-startup-id google-chrome-stable
+bindsym $mod+b exec --no-startup-id qutebrowser
 
 # Open qutebrowser
 # bindsym $mod+Shift+q exec --no-startup-id qutebrowser
