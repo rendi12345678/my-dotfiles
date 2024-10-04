@@ -2,6 +2,14 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap -- for conciseness
 
+-- Quick Note
+vim.api.nvim_set_keymap("n", "<leader>nc", "<cmd>:lua require('quicknote').NewNoteAtCWD()<cr>",{})
+vim.api.nvim_set_keymap("n", "<leader>ng", "<cmd>:lua require('quicknote').NewNoteAtGlobal()<cr>",{})
+vim.api.nvim_set_keymap("n", "<leader>onc", "<cmd>:lua require('quicknote').OpenNoteAtCWD()<cr>",{})
+vim.api.nvim_set_keymap("n", "<leader>ong", "<cmd>:lua require('quicknote').OpenNoteAtGlobal()<cr>",{})
+vim.api.nvim_set_keymap("n", "<leader>lnc", "<cmd>:lua require('quicknote').ListNotesForCWD()<cr>",{})
+vim.api.nvim_set_keymap("n", "<leader>lng", "<cmd>:lua require('quicknote').ListNotesForGlobal()<cr>",{})
+
 -- LSP keybindings
 local opts = { noremap=true, silent=true, desc = "Go to definition" }
 vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)

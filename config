@@ -34,7 +34,7 @@ bindsym Print exec --no-startup-id maim --format=png "/home/$USER/Pictures/scree
 # Set the wallpaper
 # exec_always --no-startup-id feh --bg-scale ~/Downloads/pine-watt-2Hzmz15wGik-unsplash.jpg
 # exec_always --no-startup-id feh --bg-scale ~/Downloads/karsten-wurth-7BjhtdogU3A-unsplash.jpg
-exec_always --no-startup-id feh --bg-scale ~/Downloads/rodrigo-soares-SCvlb1FWeuY-unsplash.jpg
+exec_always --no-startup-id feh --bg-scale ~/Downloads/nathan-anderson-L-7cP4p5hik-unsplash.jpg
 # exec_always --no-startup-id feh --bg-scale ~/Downloads/roksolana-zasiadko-cf-ZRVtH6kE-unsplash.jpg
 # exec_always --no-startup-id feh --bg-scale ~/Downloads/dlovan-666-ZQ2KT2J4uDI-unsplash.jpg
 # exec_always --no-startup-id feh --bg-scale ~/Downloads/quick-ps-8Z1_7-Td9v8-unsplash.jpg
@@ -137,8 +137,8 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-gaps inner 0
-gaps outer 0
+gaps inner 15
+gaps outer 15
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
