@@ -2,13 +2,94 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap -- for conciseness
 
--- Quick Note
-vim.api.nvim_set_keymap("n", "<leader>nc", "<cmd>:lua require('quicknote').NewNoteAtCWD()<cr>",{})
-vim.api.nvim_set_keymap("n", "<leader>ng", "<cmd>:lua require('quicknote').NewNoteAtGlobal()<cr>",{})
-vim.api.nvim_set_keymap("n", "<leader>onc", "<cmd>:lua require('quicknote').OpenNoteAtCWD()<cr>",{})
-vim.api.nvim_set_keymap("n", "<leader>ong", "<cmd>:lua require('quicknote').OpenNoteAtGlobal()<cr>",{})
-vim.api.nvim_set_keymap("n", "<leader>lnc", "<cmd>:lua require('quicknote').ListNotesForCWD()<cr>",{})
-vim.api.nvim_set_keymap("n", "<leader>lng", "<cmd>:lua require('quicknote').ListNotesForGlobal()<cr>",{})
+-- Mapping Obsidian commands
+local map = vim.api.nvim_set_keymap
+
+-- ObsidianNew
+map("n", "<leader>nn", ":ObsidianNew ", {})
+
+-- ObsidianOpen
+map("n", "<leader>on", ":ObsidianOpen<CR>", {})
+-- Optional: map to pass a query (replace [QUERY] with an actual query)
+map("n", "<leader>oq", ":ObsidianOpen ", {})
+
+-- ObsidianQuickSwitch
+map("n", "<leader>qs", ":ObsidianQuickSwitch<CR>", {})
+
+-- ObsidianFollowLink
+map("n", "<leader>fl", ":ObsidianFollowLink<CR>", {})
+-- Optional: to follow a note in vertical or horizontal split
+map("n", "<leader>fv", ":ObsidianFollowLink vsplit<CR>", {})
+map("n", "<leader>fh", ":ObsidianFollowLink hsplit<CR>", {})
+
+-- ObsidianBacklinks
+map("n", "<leader>bl", ":ObsidianBacklinks<CR>", {})
+
+-- ObsidianTags
+map("n", "<leader>tg", ":ObsidianTags<CR>", {})
+-- Optional: map to search for specific tags
+map("n", "<leader>tgq", ":ObsidianTags ", {})
+
+-- ObsidianToday
+map("n", "<leader>td", ":ObsidianToday<CR>", {})
+-- Optional: map to open yesterday/tomorrow notes
+map("n", "<leader>ty", ":ObsidianYesterday<CR>", {})
+map("n", "<leader>tm", ":ObsidianTomorrow<CR>", {})
+
+-- ObsidianDailies
+map("n", "<leader>dl", ":ObsidianDailies<CR>", {})
+
+-- ObsidianTemplate
+map("n", "<leader>tp", ":ObsidianTemplate<CR>", {})
+
+-- ObsidianSearch
+map("n", "<leader>sr", ":ObsidianSearch<CR>", {})
+-- Optional: pass a search query
+map("n", "<leader>sq", ":ObsidianSearch ", {})
+
+-- ObsidianLink
+map("n", "<leader>lk", ":ObsidianLink<CR>", {})
+-- Optional: map to pass a query for linking
+map("n", "<leader>lq", ":ObsidianLink ", {})
+
+-- ObsidianLinkNew
+map("n", "<leader>ln", ":ObsidianLinkNew<CR>", {})
+-- Optional: pass a title
+map("n", "<leader>lt", ":ObsidianLinkNew ", {})
+
+-- ObsidianLinks
+map("n", "<leader>lk", ":ObsidianLinks<CR>", {})
+
+-- ObsidianExtractNote
+map("v", "<leader>ex", ":ObsidianExtractNote<CR>", {})
+-- Optional: map with a title
+map("v", "<leader>et", ":ObsidianExtractNote ", {})
+
+-- ObsidianWorkspace
+map("n", "<leader>wk", ":ObsidianWorkspace<CR>", {})
+-- Optional: pass a workspace name
+map("n", "<leader>wn", ":ObsidianWorkspace ", {})
+
+-- ObsidianPasteImg
+map("n", "<leader>pi", ":ObsidianPasteImg<CR>", {})
+-- Optional: map to pass an image name
+map("n", "<leader>pn", ":ObsidianPasteImg ", {})
+
+-- ObsidianRename
+map("n", "<leader>rn", ":ObsidianRename<CR>", {})
+-- Optional: map for dry run of rename
+map("n", "<leader>rd", ":ObsidianRename --dry-run<CR>", {})
+
+-- ObsidianToggleCheckbox
+map("n", "<leader>tc", ":ObsidianToggleCheckbox<CR>", {})
+
+-- ObsidianNewFromTemplate
+map("n", "<leader>ntp", ":ObsidianNewFromTemplate<CR>", {})
+-- Optional: map to pass a title for a new note from template
+map("n", "<leader>ntt", ":ObsidianNewFromTemplate ", {})
+
+-- ObsidianTOC
+map("n", "<leader>toc", ":ObsidianTOC<CR>", {})
 
 -- LSP keybindings
 local opts = { noremap=true, silent=true, desc = "Go to definition" }
