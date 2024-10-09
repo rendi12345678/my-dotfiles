@@ -107,9 +107,6 @@ keymap.set('i', '<C-D>', '<C-o>dw', { noremap = true, silent = true, desc = 'Del
 -- Clear search highlights
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
--- Exit insert mode with Ctrl-c
-keymap.set("i", "<C-c>", "<Esc>", { desc = "Exit insert mode" })
-
 -- Select all
 keymap.set("n", "<C-t>", "gg<S-v>G", { desc = "Select all" })
 
