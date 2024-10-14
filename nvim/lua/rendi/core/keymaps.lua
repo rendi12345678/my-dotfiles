@@ -135,8 +135,11 @@ keymap.set("n", "-", "<C-x>", { desc = "Decrement number" })
 -- Manage marks
 keymap.set('n', '<leader>ja', "'a", { noremap = true, silent = true, desc = "Jump to mark 'a'" })
 keymap.set('n', '<leader>jA', "'A", { noremap = true, silent = true, desc = "Jump to global mark 'A'" })
-keymap.set('n', '<leader>dm', ':delmarks a<CR>', { noremap = true, silent = true, desc = "Delete mark 'a'" })
-keymap.set('n', '<leader>dmA', ':delmarks A<CR>', { noremap = true, silent = true, desc = "Delete mark 'A'" })
+keymap.set('n', '<leader>jb', "'b", { noremap = true, silent = true, desc = "Jump to mark 'b'" })
+keymap.set('n', '<leader>jB', "'B", { noremap = true, silent = true, desc = "Jump to global mark 'B'" })
+keymap.set('n', '<leader>jc', "'c", { noremap = true, silent = true, desc = "Jump to mark 'c'" })
+keymap.set('n', '<leader>jC', "'C", { noremap = true, silent = true, desc = "Jump to global mark 'C'" })
+keymap.set('n', '<leader>dm', ':delmarks ', { desc = "Delete mark" })
 keymap.set('n', '<leader>lm', ':marks<CR>', { noremap = true, silent = true, desc = "List all marks" })
 
 -- Zen Mode toggle

@@ -7,7 +7,9 @@ fi
 
 export COLCON_CURRENT_PREFIX=/opt/ros/humble-base
 source /opt/ros/humble-base/setup.sh
+export SUDO_EDITOR="nvim"
 
+alias "sudoedit"='function _sudoedit(){sudo -e "$1";};_sudoedit'
 export MAKEFLAGS="-j$(nproc)"
 
 edit_zsh_command() {
@@ -70,6 +72,7 @@ eval "$(zoxide init zsh)"
 alias e="edit_zsh_command"
 alias cd="z"
 alias n="nvim"
+alias sn="sudoedit"
 alias c="clear"
 alias t="tmux"
 alias ta="tmux attach -t"
@@ -154,3 +157,9 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 source "$HOME/.fzf/shell/key-bindings.zsh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+PATH="/home/rendi/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/rendi/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/rendi/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/rendi/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/rendi/perl5"; export PERL_MM_OPT;
