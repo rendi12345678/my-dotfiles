@@ -143,7 +143,7 @@ config.set('content.javascript.enabled', True, 'devtools://*')
 config.set('content.javascript.enabled', True, 'chrome://*/*')
 
 # Setting dark mode
-config.set("colors.webpage.darkmode.enabled", True)
+# config.set("colors.webpage.darkmode.enabled", True)
 
 # Enable JavaScript.
 # Type: Bool
