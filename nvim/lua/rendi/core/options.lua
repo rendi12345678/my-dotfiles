@@ -4,6 +4,7 @@ local opt = vim.opt
 
 opt.relativenumber = true
 opt.number = true
+opt.guicursor = ""
 
 -- Indentation
 opt.autoindent = true
