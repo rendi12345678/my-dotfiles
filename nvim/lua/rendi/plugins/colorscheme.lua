@@ -1,3 +1,9 @@
+-- return {
+--   'NLKNguyen/papercolor-theme',
+--   config = function ()
+--              vim.cmd('colorscheme PaperColor')
+--            end
+-- }
 return {
   "folke/tokyonight.nvim",
   priority = 1000,
