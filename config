@@ -32,7 +32,8 @@ bindsym Print exec --no-startup-id maim --format=png "/home/$USER/Pictures/scree
 # they are included here as an example. Modify as you see fit.
 
 # Set the wallpaper
-exec_always --no-startup-id feh --bg-scale ~/Downloads/foggy-lake-minimalism-landscape-6d-1920x1080.jpg
+# exec_always --no-startup-id feh --bg-scale ~/Downloads/foggy-lake-minimalism-landscape-6d-1920x1080.jpg
+exec_always --no-startup-id feh --bg-scale ~/Downloads/bannalpsee-switzerland-aurora-borealis-starry-sky-landscape-3840x2400-3938.jpg
 # exec_always --no-startup-id feh --bg-scale ~/Downloads/karsten-wurth-7BjhtdogU3A-unsplash.jpg
 # exec_always --no-startup-id feh --bg-scale ~/Downloads/nathan-anderson-L-7cP4p5hik-unsplash.jpg
 # exec_always --no-startup-id feh --bg-scale ~/Downloads/roksolana-zasiadko-cf-ZRVtH6kE-unsplash.jpg
@@ -188,6 +189,12 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
+        bindsym $mod+Shift+k resize grow height 10 px or 10 ppt
+        bindsym $mod+Shift+j resize shrink height 10 px or 10 ppt
+        bindsym $mod+Shift+h resize shrink width 10 px or 10 ppt
+        bindsym $mod+Shift+l resize grow width 10 px or 10 ppt
+
+
         # Pressing left will shrink the window’s width.
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
@@ -209,6 +216,9 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 
+# Move floating window with mouse
+bindsym --whole-window $mod+Button1 move
+
 bindsym $mod+r mode "resize"
 exec_always --no-startup-id xinput set-prop 10 "libinput Tapping Enabled" 1
 exec_always --no-startup-id xinput set-prop 10 "libinput Natural Scrolling Enabled" 1
@@ -216,8 +226,9 @@ exec_always --no-startup-id xinput set-prop 10 "libinput Natural Scrolling Enabl
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-   mode hide
-   hidden_state hide
-   modifier Mod4
-   status_command i3status
+  mode hide
+  hidden_state hide
+
+  modifier Mod4
+  status_command i3status
 }
